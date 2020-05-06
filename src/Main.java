@@ -6,6 +6,11 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		
-		 RandomAccessFileCompany.readFile();
+		 RandomAccessFileCompany.ReadFile();
+		RandomAccessFileCompany.GenerateId();
+		RandomAccessFileCompany.GenerateShares();
+		RandomAccessFileCompany.GeneratePrice();
+
+		 
 		  } 
 		} 
