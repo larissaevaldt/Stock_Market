@@ -1,14 +1,25 @@
 
+////CLASS BUILDER
 public class Company {
 	
 	private String id;
 	private int shares;
-	private double price;
-	private String name;
+	private int price;
 	
+	
+	private Company(BuilderCompany builder) {
+
+		this.id = builder.id;
+		this.price = builder.price;
+		this.shares = builder.shares;
+	}
+	
+	
+	
+
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", shares=" + shares + ", price=" + price + ", name=" + name + "]";
+		return "Company [id=" + id + ", shares=" + shares + ", price=" + price +"]";
 	}
 	public String getId() {
 		return id;
@@ -25,14 +36,51 @@ public class Company {
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getName() {
-		return name;
+	
+	public class BuilderCompany {
+		
+		private String id;
+		private int shares;
+		private int price;
+	
+		
+	public  BuilderCompany (String id){
+		this.id = id;
+		
 	}
-	public void setName(String name) {
-		this.name = name;
+	public BuilderCompany setshares(int shares) {
+		this.shares = shares;
+		return this;
 	}
-
+	public BuilderCompany setprice(int price){
+		this.price = price;
+		return this;
+	
 }
+	
+	public Company build() {
+		return new Company(this);
+	}
+	public void setId(String id) {
+		this.id = id;
+		
+	}
+}
+
+
+	
+}
+
+
+
+
+
+
+
+
+	
+
+

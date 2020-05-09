@@ -1,32 +1,59 @@
+///CLASS BUIDER
 
 public class Investor {
 
-	private String name;
 	private String id;
-	private double budget;
+	private int budget;
+	
+	private Investor(BuilderInvestor builder) {
+		this.id = builder.id;
+		this.budget = builder.budget;
+		
+	}
+	@Override
+	public String toString() {
+		return "Investor [ id=" + id + ", budget=" + budget + "]";
+	}
 	
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public double getBudget() {
+	public int getBudget() {
 		return budget;
 	}
-	public void setBudget(double budget) {
+	public void setBudget(int budget) {
 		this.budget = budget;
 	}
-	@Override
-	public String toString() {
-		return "Investor [name=" + name + ", id=" + id + ", budget=" + budget + "]";
+public class BuilderInvestor {
+		
+		private String id;
+		private int budget;
+		
+	public  BuilderInvestor(String id){
+		this.id = id;
+		
 	}
+	public BuilderInvestor setbudget(int budget) {
+		this.budget = budget;
+		return this;
 	
 }
+	
+	public Investor build() {
+		return new Investor(this);
+	}
+	public void setId(String id) {
+		this.id = id;
+		
+	}
+}
+
+
+	
+}
+
+
