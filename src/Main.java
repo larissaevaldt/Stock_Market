@@ -1,5 +1,7 @@
 import java.io.IOException;
-import java.util.ArrayList;
+
+import iterator.ShareDriver;
+
 
 
 
@@ -9,10 +11,14 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		
-		RandomGeneratorCompany.companies("n", 0, 0);
+		//RandomGeneratorCompany.companies("", 0, 0);
 
-		RandomGeneratorInvestor.investors("", 0);
-		
+		//RandomGeneratorInvestor.investors("", 0);
+		//ShareDriver marketDriver;
+		//  Transaction.TransactionDetail();
+		TradingDay.CreateCompanies();
+		TradingDay.CreateInvestors();
+		  
 	
 		  } 
 		} 

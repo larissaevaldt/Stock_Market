@@ -1,78 +1,93 @@
+import java.util.ArrayList;
 
 ////CLASS BUILDER
 public class Company {
 	
 	private String id;
 	private int shares;
-	private int price;
+	private double price;
+	private boolean sold;
 	
-	
+      //Constructor
 	private Company(BuilderCompany builder) {
 
 		this.id = builder.id;
 		this.price = builder.price;
 		this.shares = builder.shares;
+		this.sold = builder.sold;
 	}
-	
-	
-	
-
+	//implementation for Company
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", shares=" + shares + ", price=" + price +"]";
+		return "Company [id=" + id + ", shares=" + shares + ", price=" + price + ", sold=" + sold + "]";
 	}
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public int getShares() {
 		return shares;
 	}
-	public void setShares(int shares) {
-		this.shares = shares;
-	}
+	
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
 	
-	public class BuilderCompany {
+	public boolean isSold() {
+		return sold;
+	}
+
+	
+	
+	public static class BuilderCompany {
 		
 		private String id;
 		private int shares;
-		private int price;
+		private double price;
+		private boolean sold;
 	
 		
 	public  BuilderCompany (String id){
 		this.id = id;
-		
+	    this.shares= shares;
+	    this.price = price;
+	    this.sold= sold;
 	}
-	public BuilderCompany setshares(int shares) {
+	public BuilderCompany setShares(int shares) {
 		this.shares = shares;
 		return this;
 	}
-	public BuilderCompany setprice(int price){
+	public BuilderCompany setPrice(double price){
 		this.price = price;
 		return this;
 	
 }
+	public BuilderCompany setsold(boolean sold){
+		this.sold = sold;
+		return this;
+	}
 	
-	public Company build() {
+	public Company build() {		
 		return new Company(this);
+		//return new ArrayList<Company>();
 	}
-	public void setId(String id) {
-		this.id = id;
-		
-	}
+	
 }
+
+
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
+
+
+
 
 
 	
-}
+
 
 
 

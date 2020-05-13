@@ -3,7 +3,7 @@
 public class Investor {
 
 	private String id;
-	private int budget;
+	private float budget;
 	
 	private Investor(BuilderInvestor builder) {
 		this.id = builder.id;
@@ -19,25 +19,22 @@ public class Investor {
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public int getBudget() {
+	
+	public float getBudget() {
 		return budget;
+	
 	}
-	public void setBudget(int budget) {
-		this.budget = budget;
-	}
-public class BuilderInvestor {
+public static class BuilderInvestor {
 		
 		private String id;
-		private int budget;
+		private float budget;
 		
 	public  BuilderInvestor(String id){
 		this.id = id;
+		this.budget= budget;
 		
 	}
-	public BuilderInvestor setbudget(int budget) {
+	public BuilderInvestor setbudget(float budget) {
 		this.budget = budget;
 		return this;
 	
