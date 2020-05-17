@@ -1,11 +1,16 @@
+package facade;
 
 
 import java.util.ArrayList;
 
+import builder.Company;
+import builder.Investor;
 
 
 
-public class RandomGeneratorCompany {
+
+
+public class RandomCompany {
 	
 	 public static ArrayList<Company>companies;
 	
@@ -26,10 +31,7 @@ public class RandomGeneratorCompany {
 				sb.append(characters.charAt(index));  
 			}
 					//System.out.println("Company:" + sb.toString());
-					return sb.toString();
-				
-					
-				
+					return sb.toString();		
 			
 		}
 		
@@ -52,16 +54,17 @@ public class RandomGeneratorCompany {
 		      
 		      //Generate random float value from 50 to 100 
 		      double random_double = (double) (Math.random() * (max - min + 1) + min); 
-		   //  System.out.println("Share price:" + random_double);
 			return random_double;
 		
 		}
-		 
-		     
-		    	  
-
-
- 
+		
+		
+		public static ArrayList<Company> getCompany(){
+			for (int i = 0; i<companies.size(); i++);{	
+			}
+			return companies;
+			
+		}
 	 
  }
  

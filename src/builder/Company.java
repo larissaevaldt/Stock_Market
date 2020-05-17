@@ -1,25 +1,26 @@
-import java.util.ArrayList;
+package builder;
 
 ////CLASS BUILDER
 public class Company {
 	
 	private String id;
 	private int shares;
-	private double price;
-	private boolean sold;
+	private double sharePrice;
+	private int shareSold;
+
 	
       //Constructor
 	private Company(BuilderCompany builder) {
 
 		this.id = builder.id;
-		this.price = builder.price;
+		this.sharePrice = builder.Shareprice;
 		this.shares = builder.shares;
-		this.sold = builder.sold;
+		this.shareSold = builder.sharesold;
 	}
 	//implementation for Company
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", shares=" + shares + ", price=" + price + ", sold=" + sold + "]";
+		return "Company [id=" + id + ", Number Of Shares=" + shares + ", price=" + sharePrice + ", sharesold=" + shareSold + "]";
 	}
 	public String getId() {
 		return id;
@@ -30,51 +31,59 @@ public class Company {
 	}
 	
 	public double getPrice() {
-		return price;
+		return getPrice();
 	}
-	
-	public boolean isSold() {
-		return sold;
+	public double setsharePrice() {
+		return sharePrice;
+		
+	}
+	public int getshareSold() {
+		return shareSold;
+	}
+	public void setshareSold(int sharesold) {
+		this.shareSold = sharesold;
 	}
 
 	
 	
 	public static class BuilderCompany {
 		
+		public int sharesold;
 		private String id;
 		private int shares;
-		private double price;
-		private boolean sold;
+		private double Shareprice;
+
 	
 		
 	public  BuilderCompany (String id){
 		this.id = id;
 	    this.shares= shares;
-	    this.price = price;
-	    this.sold= sold;
+	    this.Shareprice = Shareprice;
+	    this.sharesold= sharesold;
 	}
 	public BuilderCompany setShares(int shares) {
 		this.shares = shares;
 		return this;
 	}
-	public BuilderCompany setPrice(double price){
-		this.price = price;
+	public BuilderCompany setSharePrice(double price){
+		this.Shareprice = price;
 		return this;
 	
 }
-	public BuilderCompany setsold(boolean sold){
-		this.sold = sold;
+	public  BuilderCompany setShareSold(int shareSold){
+		this.sharesold = shareSold;
 		return this;
 	}
 	
+	public void setId(String id) {
+		this.id = id;
+	}
 	public Company build() {		
 		return new Company(this);
 		//return new ArrayList<Company>();
 	}
 	
 }
-
-
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return false;

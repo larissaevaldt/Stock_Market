@@ -1,11 +1,14 @@
+package facade;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import builder.Investor;
 
 
 
-public class RandomGeneratorInvestor {
+
+public class RandomInvestor {
 	
 	public static ArrayList<Investor>investors;
 
@@ -41,5 +44,11 @@ public class RandomGeneratorInvestor {
 		
 		
 		
-}
+}      
+		public static ArrayList<Investor> getInvestor(){
+			for (int i = 0; i<investors.size(); i++);{	
+			}
+			return investors;
 		}
+}
+      

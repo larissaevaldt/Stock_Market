@@ -1,14 +1,11 @@
-import java.io.IOException;
+import facade.TradingDay;
+import view.Display;
 
-import iterator.ShareDriver;
-
-
-
-
+import view.Display;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		
 		//RandomGeneratorCompany.companies("", 0, 0);
@@ -16,8 +13,10 @@ public class Main {
 		//RandomGeneratorInvestor.investors("", 0);
 		//ShareDriver marketDriver;
 		//  Transaction.TransactionDetail();
-		TradingDay.CreateCompanies();
-		TradingDay.CreateInvestors();
+		//TradingDay.CreateCompanies();
+		System.out.println("------------------Companies----------------------------");
+		TradingDay.getInstance();
+	    Display.DisplayMenu();
 		  
 	
 		  } 
