@@ -56,8 +56,8 @@ public class Company {
             this.shareSold = 0;
         }
 
-        public BuilderCompany setSharePrice(double price) {
-            this.sharePrice = price;
+        public BuilderCompany setSharePrice(double sharePrice) {
+            this.sharePrice = sharePrice;
             return this;
         }
 

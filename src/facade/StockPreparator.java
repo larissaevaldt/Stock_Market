@@ -4,23 +4,26 @@ import java.util.ArrayList;
 
 import builder.Company;
 import builder.Investor;
+import builder.RandomCompany;
+import builder.RandomInvestor;
 import view.Display;
 
-//trading day is a Thread Safe Singleton class
-public class TradingDay {
+//StockPreparator is a Thread Safe Singleton class
+public class StockPreparator {
 
     public ArrayList<Company> companies;
+    private ArrayList<Investor> investors;
     public ArrayList<Company> inTenTransactions;
     private static int soldShares = 0;
     // private int numberOfSharesOnMarket;
 
-    private static TradingDay instance = new TradingDay();
+    private static StockPreparator instance = new StockPreparator();
 
-    private ArrayList<Investor> investors;
+ 
 
-    private TradingDay() {
-        companies = CreateCompanies();
-        investors = CreateInvestors();
+        private StockPreparator() {
+        this.companies = CreateCompanies();
+        this.investors = CreateInvestors();
     }
 
     /*
@@ -74,47 +77,12 @@ public class TradingDay {
         return investors;
     }
 
-    public static synchronized TradingDay getInstance() {
+    public static synchronized StockPreparator getInstance() {
         if (instance == null) {
-            instance = new TradingDay();
+            instance = new StockPreparator();
         }
 
         return instance;
     }
 
-    // STILL NEED TO CHECK WHAT IS WRONG WITH THIS METHODS
-    // // Get Share sold
-    // public static void sold() {
-    // for (int i = 0; i < 100; i++) {
-    // if (companies.get(i).getshareSold() > 9) {
-    // double doubledPrice = companies.get(i).getPrice() * 2;
-    // companies.get(i).setsharePrice();
-    // companies.get(i).setshareSold(0);
-    // }
-    // }
-    // }
-
-    // public double buyShares(int NumberOfSharesBought, float budget) {
-    // double SharePrice = companies.get(0).getPrice();
-    // if (investors.get(0).getBudget() >= SharePrice && SharePrice != 0) {
-    // budget = (float) (budget - SharePrice);
-    // NumberOfSharesBought++;
-    // }
-    // return budget;
-
-    // }
-
-    // public int CompanyInvestedIn(int numberOfCompaniesInvestedIn) {
-    // int shareSold = companies.get(0).getShares();
-    // if (companies.get(0).getshareSold() >= shareSold && shareSold != 0) {
-    // numberOfCompaniesInvestedIn = numberOfCompaniesInvestedIn - shareSold;
-    // numberOfCompaniesInvestedIn++;
-    // }
-    // return shareSold;
-    // }
-
-    // private static void increasePrice() {
-    // // TODO Auto-generated method stub
-
-    // }
 }

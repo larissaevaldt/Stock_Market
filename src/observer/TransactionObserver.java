@@ -1,7 +1,7 @@
 package observer;
  import builder.Investor;
-import facade.RandomCompany;
-import facade.RandomInvestor;
+import builder.RandomCompany;
+import builder.RandomInvestor;
 
 import java.util.ArrayList;
 import builder.Company; 
