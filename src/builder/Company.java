@@ -2,109 +2,74 @@ package builder;
 
 ////CLASS BUILDER
 public class Company {
-	
-	private String id;
-	private int shares;
-	private double sharePrice;
-	private int shareSold;
 
-	
-      //Constructor
-	private Company(BuilderCompany builder) {
+    private String id;
+    private int numberShares;
+    private double sharePrice;
+    private int shareSold;
 
-		this.id = builder.id;
-		this.sharePrice = builder.Shareprice;
-		this.shares = builder.shares;
-		this.shareSold = builder.sharesold;
-	}
-	//implementation for Company
-	@Override
-	public String toString() {
-		return "Company [id=" + id + ", Number Of Shares=" + shares + ", price=" + sharePrice + ", sharesold=" + shareSold + "]";
-	}
-	public String getId() {
-		return id;
-	}
-	
-	public int getShares() {
-		return shares;
-	}
-	
-	public double getPrice() {
-		return getPrice();
-	}
-	public double setsharePrice() {
-		return sharePrice;
-		
-	}
-	public int getshareSold() {
-		return shareSold;
-	}
-	public void setshareSold(int sharesold) {
-		this.shareSold = sharesold;
-	}
+    // private constructor so the only way to create a Country object is through the
+    // Builder Class
+    private Company(BuilderCompany builder) {
 
-	
-	
-	public static class BuilderCompany {
-		
-		public int sharesold;
-		private String id;
-		private int shares;
-		private double Shareprice;
+        this.id = builder.id;
+        this.numberShares = builder.numberShares;
+        this.sharePrice = builder.sharePrice;
+        this.shareSold = builder.shareSold;
+    }
 
-	
-		
-	public  BuilderCompany (String id){
-		this.id = id;
-	    this.shares= shares;
-	    this.Shareprice = Shareprice;
-	    this.sharesold= sharesold;
-	}
-	public BuilderCompany setShares(int shares) {
-		this.shares = shares;
-		return this;
-	}
-	public BuilderCompany setSharePrice(double price){
-		this.Shareprice = price;
-		return this;
-	
-}
-	public  BuilderCompany setShareSold(int shareSold){
-		this.sharesold = shareSold;
-		return this;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	public Company build() {		
-		return new Company(this);
-		//return new ArrayList<Company>();
-	}
-	
-}
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    // implementation for Company
+    @Override
+    public String toString() {
+        return "Company [id=" + id + ", Number Of Shares=" + numberShares + ", price=" + sharePrice + ", sharesold="
+                + shareSold + "]";
+    }
+
+    // no setters, only getters
+    public String getId() {
+        return id;
+    }
+
+    public int getShares() {
+        return numberShares;
+    }
+
+    public double getSharePrice() {
+        return sharePrice;
+    }
+
+    public int getShareSold() {
+        return shareSold;
+    }
+
+    public static class BuilderCompany {
+
+        private String id;
+        private int numberShares;
+        private double sharePrice;
+        private int shareSold;
+
+        public BuilderCompany(String id, int numberShares, double sharePrice) {
+            this.id = id;
+            this.numberShares = numberShares;
+            this.sharePrice = sharePrice;
+            this.shareSold = 0;
+        }
+
+        public BuilderCompany setSharePrice(double price) {
+            this.sharePrice = price;
+            return this;
+        }
+
+        public BuilderCompany setShareSold(int shareSold) {
+            this.shareSold = shareSold;
+            return this;
+        }
+
+        public Company build() {
+            return new Company(this);
+        }
+
+    }
 
 }
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-	
-
-
