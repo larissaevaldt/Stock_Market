@@ -1,7 +1,10 @@
 package builder;
 
+import observer.Observer;
+import observer.StockSubject;
+
 ////CLASS BUILDER
-public class Company {
+public class Company implements Observer {
 
     private String id;
     private int numberShares;
@@ -38,8 +41,21 @@ public class Company {
         return sharePrice;
     }
 
-    public int getShareSold() {
-        return shareSold;
+    private void doublePrice() {
+        sharePrice = sharePrice * 2;
+    }
+
+    public void shareSold() {
+        shareSold++;
+        StockSubject.getInstance().addTransaction(this);
+        if (shareSold == 10) {
+            shareSold = 0;
+            doublePrice();
+        }
+    }
+
+    public void update() {
+        sharePrice = sharePrice * 0.98;
     }
 
     public static class BuilderCompany {
@@ -54,11 +70,6 @@ public class Company {
             this.numberShares = numberShares;
             this.sharePrice = sharePrice;
             this.shareSold = 0;
-        }
-
-        public BuilderCompany setSharePrice(double sharePrice) {
-            this.sharePrice = sharePrice;
-            return this;
         }
 
         public BuilderCompany setShareSold(int shareSold) {
