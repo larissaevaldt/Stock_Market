@@ -7,6 +7,7 @@ import builder.Investor;
 import builder.RandomCompany;
 import builder.RandomInvestor;
 
+//contain a list with the 100 companies and 100 investors
 public class StockPreparator {
 
     private ArrayList<Company> companies;

@@ -41,10 +41,15 @@ public class Company implements Observer {
         return sharePrice;
     }
 
+    public int getShareSold() {
+        return shareSold;
+    }
+
     private void doublePrice() {
         sharePrice = sharePrice * 2;
     }
 
+    // everytime a share is sold,
     public void shareSold() {
         shareSold++;
         StockSubject.getInstance().addTransaction(this);
